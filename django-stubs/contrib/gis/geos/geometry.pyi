@@ -9,6 +9,7 @@ from django.contrib.gis.geos.mutable_list import ListMixin
 from django.contrib.gis.geos.point import Point
 from django.contrib.gis.geos.prepared import PreparedGeometry
 
+
 class GEOSGeometryBase(GEOSBase):
     ptr_type: Any
     destructor: Any
@@ -26,6 +27,8 @@ class GEOSGeometryBase(GEOSBase):
     def __and__(self, other: GEOSGeometry) -> GEOSGeometry: ...
     def __sub__(self, other: GEOSGeometry) -> GEOSGeometry: ...
     def __xor__(self, other: GEOSGeometry) -> GEOSGeometry: ...
+    @property
+    def coords(self) -> tuple: ...
     @property
     def coord_seq(self) -> GEOSCoordSeq | None: ...
     @property
